@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql-5.7
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - "data:/var/lib/mysql"
+      - "./set-grant-permission-to-user.sql:/docker-entrypoint-initdb.d/set-grant-permission-to-user.sql"
+    networks:
+      - venus
+    environment:
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      TZ: ${MYSQL_TIMEZONE}
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=${MYSQL_CHARSET} --collation-server=${MYSQL_COLLATION}
+
+volumes:
+  data:
+    driver: local
+
+networks:
+  venus:
+    external: true
