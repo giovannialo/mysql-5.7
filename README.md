@@ -22,7 +22,7 @@ docker network create --driver bridge venus
 
 ### Variáveis de ambiente
 
-Na pasta raiz crie um arquivo chamado .env, copie e cole o bloco de código abaixo e configure as variáveis.
+Na pasta raiz crie um arquivo chamado **.env**, copie e cole o bloco de código abaixo e configure as variáveis.
 
 ```dotenv
 MYSQL_USER=usuario
@@ -35,7 +35,7 @@ MYSQL_COLLATION=utf8mb4_unicode_ci
 
 ### Permissões do usuário não root
 
-Abra o arquivo **set-grant-permission-to-basic-user.sql** e, onde tem a palavra **usuario**, altere para o mesmo valor
+Abra o arquivo **set-grant-permission-to-user.sql** e, onde tem a palavra **usuario**, altere para o mesmo valor
 de **MYSQL_USER** do arquivo **.env**.
 
 ```sql
