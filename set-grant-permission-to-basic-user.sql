@@ -14,4 +14,4 @@ GRANT SELECT,
   CREATE ROUTINE,
   ALTER ROUTINE,
   EVENT,
-  TRIGGER ON *.* TO 'user'@'%';
+  TRIGGER ON *.* TO 'usuario'@'%';
